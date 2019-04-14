@@ -4,6 +4,7 @@ function Canvas(width, height) {
     this.element.width  = this.width = width
     this.element.height = this.height = height
     this.ctx = this.element.getContext('2d')
+    this.ctx.translate(0.5, 0.5)
 }
 Canvas.prototype = {
     clear() {
