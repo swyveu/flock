@@ -4,49 +4,41 @@ function Animation() {
     let callback
     let running = true
     let then = performance.now()
-    let delta = 0
     let maxFps = 60
-
+    let maxStep = 0.1
 
     /* ------------------------------------------ */
 
-    this.run = () => {
-        requestAnimationFrame(tick)
-    }
-
-    const tick = now => {
+    const run = now => {
         if (!running) return
 
-        update()
+        let step  = (now - then) * 0.001
 
-        delta = (now - then) * 0.001
-        const fps = 1 / delta
-        // console.log('fps', fps)
+        if      (step < 0)       step += 1
+        else if (step > maxStep) step = maxStep
 
+        update(step)
         then = now
 
-        setTimeout(() => {
-            requestAnimationFrame(tick)
-        }, 1000/maxFps)
+        setTimeout(() => requestAnimationFrame(run), 1000/maxFps)
     }
 
-    const update = () => {
-        callback(getTimeStep())
-    }
-
-    const getTimeStep = () => {
-        return delta
+    const update = (timeStep) => {
+        callback(timeStep)
     }
 
     /* ------------------------------------------ */
 
+    this.start = () => {
+        requestAnimationFrame(run)
+    }
+
     this.toggle = () => {
-        if (!running) this.run()
         running = !running
+        if (running) this.start()
     }
 
-    this.setCallback = (callbackFunction) => {
-        callback = callbackFunction
+    this.setCallback = (func) => {
+        callback = func
     }
-
 }
