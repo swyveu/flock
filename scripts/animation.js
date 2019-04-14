@@ -22,7 +22,9 @@ function Animation() {
         update(step)
         then = now
 
-        setTimeout(() => requestAnimationFrame(run), 1000/maxFps)
+        requestAnimationFrame(run)
+
+        // setTimeout(() => requestAnimationFrame(run), 1000/maxFps)
     }
 
     const update = (timeStep) => {
