@@ -2,10 +2,11 @@
 function Animation() {
 
     let callback
-    let running = false
+    let running = true
     let then = performance.now()
     let delta = 0
     let maxFps = 60
+
 
     /* ------------------------------------------ */
 
@@ -36,6 +37,8 @@ function Animation() {
     const getTimeStep = () => {
         return delta
     }
+
+    run()
 
     /* ------------------------------------------ */
 
