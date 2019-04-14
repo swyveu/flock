@@ -9,8 +9,10 @@ function Animation() {
 
     /* ------------------------------------------ */
 
-    const run = now => {
+    const run = () => {
         if (!running) return
+
+        let now = performance.now()
 
         let step  = (now - then) * 0.001
 
