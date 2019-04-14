@@ -10,7 +10,7 @@ function Animation() {
 
     /* ------------------------------------------ */
 
-    const run = () => {
+    this.run = () => {
         requestAnimationFrame(tick)
     }
 
@@ -38,12 +38,10 @@ function Animation() {
         return delta
     }
 
-    run()
-
     /* ------------------------------------------ */
 
     this.toggle = () => {
-        if (!running) run()
+        if (!running) this.run()
         running = !running
     }
 

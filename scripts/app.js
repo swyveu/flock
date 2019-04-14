@@ -11,6 +11,7 @@ function app() {
         anim.setCallback(update)
         listen()
         initAgents()
+        anim.run()
     }
 
     const initAgents = () => {
