@@ -1,0 +1,23 @@
+html {
+    font-family: Helvetica, Arial;
+    font-size: 14px;
+}
+
+body {
+    background-color: rgb(100,100,100);
+}
+
+canvas {
+    margin: 20px;
+    background-color: rgb(220,220,220);
+    border: 2px solid rgb(50, 50, 50);
+    border-radius: 10px;
+}
+
+#container {
+    background-color: rgb(150,150,150);
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
